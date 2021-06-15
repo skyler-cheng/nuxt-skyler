@@ -72,3 +72,12 @@
 @import "layout/main";
 @import "layout/footer";
 @import "layout/wrapper";
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.27s;
+}
+.page-enter,
+.page-leave-action {
+  opacity: 0;
+}
