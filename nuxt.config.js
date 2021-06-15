@@ -5,6 +5,11 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  // github
+  router:{
+    base: '/nuxt-skyler/',
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt-test',
@@ -20,11 +25,11 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script:[
-      {src:'/js/jquery.min.js',body:true},
-      {src:'/js/browser.min.js',body:true},
-      {src:'/js/breakpoints.min.js',body:true},
-      {src:'/js/util.js',body:true},
-      {src:'/js/main.js',body:true}
+      {src:'/nuxt-skyler/js/jquery.min.js',body:true},
+      {src:'/nuxt-skyler/js/browser.min.js',body:true},
+      {src:'/nuxt-skyler/js/breakpoints.min.js',body:true},
+      {src:'/nuxt-skyler/js/util.js',body:true},
+      {src:'/nuxt-skyler/js/main.js',body:true}
     ]
   },
 
