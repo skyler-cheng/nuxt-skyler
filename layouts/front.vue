@@ -5,12 +5,18 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default{
-  mounted(){
-    var $window= $(window),
-        $body= $('body');
+	methods: {
+		...mapActions([
 
-    // Menu.
+		])
+	},
+	mounted(){
+		var $window= $(window),
+			$body= $('body');
+
+		// Menu.
 		var $menu = $('#menu');
 
 		$menu.wrapInner('<div class="inner"></div>');
@@ -66,11 +72,11 @@ export default{
 				event.stopPropagation();
 
 				// Hide.
-					$menu._hide();
+				$menu._hide();
 
 				// Redirect.
-					if (href == '#menu')
-						return;
+				if (href == '#menu')
+					return;
 
 			})
 			.append('<a class="close" href="#menu">Close</a>');
@@ -82,23 +88,23 @@ export default{
 				event.preventDefault();
 
 				// Toggle.
-					$menu._toggle();
+				$menu._toggle();
 
 			})
 			.on('click', function(event) {
 
 				// Hide.
-					$menu._hide();
+				$menu._hide();
 
 			})
 			.on('keydown', function(event) {
 
 				// Hide on escape.
-					if (event.keyCode == 27)
-						$menu._hide();
+				if (event.keyCode == 27)
+					$menu._hide();
 
 			});
-  }
+	}
 }
 </script>
 

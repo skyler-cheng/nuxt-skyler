@@ -28,6 +28,10 @@ import Header from '~/components/Header.vue';
 import Menu from '~/components/Menu.vue';
 import Footer from '~/components/Footer.vue';
 export default {
+    layout: 'front',
+    head: {
+        title: '個人介紹頁'
+    },
     components:{
         Header,
         Menu,
