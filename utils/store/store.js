@@ -18,7 +18,7 @@ export default class Store {
    * Examples:
    *
    *   .setStore('name', 'abc')
-   *   .setStore({ name: 'abc', age: 18 }) // 一次存多个
+   *   .setStore({ name: 'abc', age: 18 }) // 一次儲存多個
    * @param {string | object} key 
    * @param {any} value 
    */

@@ -22,6 +22,7 @@ import Header from '~/components/Header.vue';
 import Menu from '~/components/Menu.vue';
 import Footer from '~/components/Footer.vue';
 import cmn from '~/utils/'
+import { mapActions } from 'vuex'
 export default {
   layout: 'front',
   head: {
@@ -37,12 +38,21 @@ export default {
       account: 'taiwan.hare@gmail.com',
       password: 'hare'
     }).then(res => {
-      cmn.setStore('user', res)
-      cmn.trigger('getData', res)
+      console.log(res)
+      if(res.status==='success'){
+        this.getAuthenticated(res.dataResult)
+        cmn.trigger('getData', res.dataResult)
+      }
     })
   },
   created() {
     cmn.on('getData', console.log)
+  },
+  methods: {
+    ...mapActions('user',[
+        'getAuthenticated'
+      ]
+    )
   },
 }
 </script>

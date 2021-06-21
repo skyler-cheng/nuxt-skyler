@@ -1,9 +1,9 @@
-const config = require('./base.config.js').default
+const config = require('./base.config.js')
 const path = require('path')
 
-export default {
+module.exports = {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  ssr: true,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',

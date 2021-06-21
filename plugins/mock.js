@@ -1,14 +1,9 @@
-// // -> Developer mock data
-// if (process.env.NODE_ENV === 'development') {
-//   require('../mocks/')
-// }
-
 import mocks from '../mocks/'
 import $$ from '~/utils/index'
 import Mock from 'mockjs'
 
 const MockAdapter = require('axios-mock-adapter')
-const config = require('../base.config.js').default
+const config = require('../base.config.js')
 const mock = Mock.mock
 
 /** * 模擬延遲請求 
@@ -38,8 +33,12 @@ const toError = (message, time, code = 200) => {
 
 // 批量註冊路由事件，以插件形式對外拋出
 // MockAdapter基本使用可參考官方說明
-export default function ({ $axios }) {
-    const axiosMock = new MockAdapter($axios);
+export default function ({ $timelinkerApi }) {
+    if(!config.useMock){
+        return;
+    }
+    
+    const axiosMock = new MockAdapter($timelinkerApi);
 
     Object.values(mocks).forEach(mockFile => {
         let mockAPIs = {}

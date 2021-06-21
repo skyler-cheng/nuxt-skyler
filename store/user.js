@@ -1,10 +1,12 @@
 export const state = () => ({
-  token: ''
+  token: '',
+  name: ''
 })
 
 export const mutations = {
-  setAuthenticated (state, token) {
-    state.token = token
+  setAuthenticated (state, userInfo) {
+    state.token = userInfo.token
+    state.name = userInfo.name
   }
 }
 

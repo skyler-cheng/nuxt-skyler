@@ -1,7 +1,7 @@
 import { Notify } from 'vant'
 import Cookies from 'js-cookie'
 
-const config = require('../base.config.js').default
+const config = require('../base.config.js')
 const ERRORS = new Map([
   [400,'請求參數錯誤'],
   [401, '權限不足, 請重新登錄'],
@@ -35,12 +35,13 @@ export default function ({ $axios, redirect, store }, inject) {
 
   timelinkerApi.onResponse((response) => {
     const { config, data, headers } = response
-    const { token, errcode, errmsg } = data
-    if (~config.url.indexOf('/login') && token) {
-      Cookies.set('token',token , { expires: 7 })
+    const { status, dataResult, message } = data
+    
+    if (status==='success' && ~config.url.indexOf('/login')) {
+      Cookies.set('token',dataResult.token , { expires: 7 })
     }
-    if (errcode && errmsg) {
-      Notify(errmsg)
+    if (status!=='success' && message) {
+      Notify(message)
     }
     return response
   })
