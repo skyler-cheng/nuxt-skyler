@@ -18,7 +18,7 @@ module.exports = {
   head: {
     title: 'skyler 覆歷',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'zh_TW'
     },
     meta: [
       { charset: 'utf-8' },
